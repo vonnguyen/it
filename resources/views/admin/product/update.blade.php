@@ -19,6 +19,17 @@
                 <input type="text" name="masp" disabled>
             </div>
             <div class="mb10">
+                Danh mục<br>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="cate" id="">
+                    @if ($listCate->count() > 0)
+                        @foreach ($listCate as $catee)
+                            <option {{$catee->id == $cate->cate ? "selected":""}} value="{{$catee['id']}}">{{$catee['name']}}</option>
+                        @endforeach
+                        
+                    @endif
+                </select>
+            </div>
+            <div class="mb10">
                 Tên sản phẩm<br>
                 <input type="text" value="{{$cate->name}}"  name="name">
             </div>
