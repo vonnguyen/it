@@ -6,19 +6,22 @@
         <h1>DANH SÁCH SẢN PHẨM</h1>
     </div>
     <div class="frmcontent">
+        <form action="">
+
             <div class="row mb10 pb-2" style = "width:100%; margin:auto; ">
-                 Tên loại danh mục<br>
-                <select class="form-select" style = "width:100%;
-                                                    padding: 5px;
-                                                    border-radius: 5px;" 
-                    name= "product" aria-label="Default select example">
-                    {{-- <?php 
-                        foreach($listProduct['product'] as $item){
-                            echo '<option value="'.$item['id'].'">'.$item['name'].'</option>';
-                        }
-                    ?>                    --}}
-                </select>
+              
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="cate" id="">
+                        <option value="">Danh mục sản phẩm</option>
+                        @if ($listCate->count() > 0)
+                            @foreach ($listCate as $cate)
+                                <option value="{{$cate['id']}}">{{$cate['name']}}</option>
+                            @endforeach
+                            
+                        @endif
+                    </select>
             </div>
+        </form>
+
         <div class="mb10 frmdsloai text-center">
             <table>
                 <tr>

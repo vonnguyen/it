@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\GroupController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\ProductController as ClientProductController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -74,3 +75,7 @@ Route::get("/product",[ClientProductController::class,'index'])->middleware('aut
 
 Route::get("/",[HomeController::class,'index'])->middleware('auth');
 Auth::routes();
+
+Route::prefix('cart')->name('cart.')->group(function(){
+    Route::post('/add',[CartController::class,'add'])->middleware('auth')->name('add');
+});

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoe Zone</title>
     <link rel="icon" type="image/x-icon" href="{{asset('client')}}/assets/img/logo/logo.png">
@@ -111,8 +112,16 @@
                     <a href="login.html"><i class="fa-solid fa-user"></i></a>
                 </span>
                 <span class="icon-cart">
+                 @php
+						$number = 0;
+						if(session('cart')){
+							foreach(session('cart') as $item){
+								$number += (int)$item['number'];
+							}
+						}
+                @endphp
                     <span class="icon-number">
-                        0
+                        {{$number}}
                     </span>
                     <i class="fa-solid fa-briefcase"></i>
                 </span>
@@ -288,12 +297,41 @@
 
                 <div class="container-cart">
                     <!-- Them san pham vao -->
+                  @php
+                      $sum = 0;
+                  @endphp
+                    @if (session('cart')){
+                        @foreach (session('cart') as $item)
+                        @php
+                        $sum += $item->total;
+                        @endphp
+                        <div class="product-cart">
+                            <span class="close-item">x</span>
+                            <div class="item-img-cart">
+                                <img src="{{$item->image}}" alt="">
+                            </div>
+                            <div class="detais-cart">
+                                <h6>{{$item->name}}</h6>
+                                <p>7 / yellow / leather</p>
+                                <span>{{$item->gia}}</span>
+                                <div class="dt-sc-cart">
+                                    <span class="up-down">-</span>
+                                    <input type="text" value="{{$item->number}}">
+                                    <span class="up-down">+</span>
+                                </div>
+                            </div>
+                    
+                        </div>
+                        @endforeach
+                    }
+                        
+                    @endif
                 </div>
 
                 <div class="bottom-cart">
                     <div class="sub-total">
                         <div class="p-title">Total</div>
-                        <span class="money"> <span></span> $106.00</span>
+                        <span class="money">$<span>{{$sum}}</span></span>
                     </div>
                     <div class="p-main">
                         Shipping, taxes, and discounts will be calculated at checkout.
@@ -317,9 +355,10 @@
         <script>
             AOS.init();
         </script>
-        <script src="./main.js"></script>
-        <script src="./cart.js"></script>
-        <script src="./responesive.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="{{asset('client/js')}}/main.js"></script>
+        <script src="{{asset('client/js')}}/cart.js"></script>
+        {{-- <script src="./responesive.js"></script> --}}
 
 
 </body>

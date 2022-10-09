@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('css')
     <link rel="stylesheet" href="{{asset('client')}}/assets/product.css">
+    <link rel="stylesheet" href="{{asset('client')}}/assets/login.css">
 @endsection
 @section('content')
     <div class="slide-header">
@@ -72,13 +73,14 @@
                                         <div class="cost-ctn3">
                                             <h2><span>$</span>{{number_format($product->gia , 2)}}</h2>
                                         </div>
-                                        <div class="icon-ctn3">
+                                        <div class="icon-ctn3" >
                                             <div class="icon-start">
                                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                                     class="fa-solid fa-star">
                                                 </i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                             </div>
-                                            <div class="bag-ctn3"><a href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                                            <div class="bag-ctn3"
+                                            data-url="{{route('cart.add')}}" data-id="{{$product->id}}"><i class="fa-solid fa-bag-shopping"></i>
                                             </div>
     
                                         </div>
