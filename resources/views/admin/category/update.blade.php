@@ -23,7 +23,7 @@
                 <input type="text" value="{{$cate->name}}"  name="name">
             </div>
             <div class="mb10">
-                <input type="submit" name="themmoi" value="THÊM MỚI">
+                <input type="submit" name="themmoi" value="CẬP NHẬT">
                 <input type="reset" value="NHẬP LẠI">
                 <a href="{{route('admin.category.listds')}}"><input type="button" value="DANH SÁCH"></a>
             </div>

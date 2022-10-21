@@ -108,13 +108,11 @@
 .icon-number {
   background-color: #333;
   border-radius: 50%;
-  width: 15px;
-  height: 15px;
   display: block;
   position: absolute;
   color: #fff;
   text-align: center;
-  top: -9px;
+  top: -12px;
   right: 0px;
   line-height: 15px;
 }
@@ -138,7 +136,7 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s linear;
-  top: 80px;
+  top: 67px;
   padding:0 30px 30px;
   left: 0;
   right: 0;
@@ -864,4 +862,14 @@ li a:hover {
   min-height: 550px !important;
   /* max-height: 550px !important; */
   height: 100%;
+}
+
+.model-user.active {
+  visibility: visible;
+  opacity: 1;
+}
+.model-user{
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s linear;
 }

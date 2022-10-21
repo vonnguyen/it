@@ -50,4 +50,27 @@ class CartController extends Controller
         $cart = Session::get('cart');
         return response()->json($cart);  // trả dữ liệu về client
     }
+
+    // xóa 
+    public function remove(Request $request)
+    {
+        $cart = Session::get('cart');
+        if (is_null($cart)) {
+        } else {
+            if (!empty($cart)) {
+                $keyRemove = -1;
+                foreach ($cart as $key => $item) {
+                    if ($item->id == $request->id) {
+                        $keyRemove = $key;
+                    }
+                }
+                if ($keyRemove > -1) {
+                    array_splice($cart, $keyRemove, 1);
+                }
+            }
+        }
+        Session::put('cart', $cart);
+        $cart = Session::get('cart');
+        return response()->json($cart);
+    }
 }

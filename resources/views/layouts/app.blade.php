@@ -25,6 +25,9 @@
     <!-- link AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!--  -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+
     <link rel="stylesheet" href="{{asset('client')}}/assets/base.css">
     <link rel="stylesheet" href="{{asset('client')}}/assets/style.css">
     <link rel="stylesheet" href="{{asset('client')}}/assets/cart.css">
@@ -44,8 +47,8 @@
 
             <div class="menu-header">
                 <ul class="subnav-menu">
-                    <li><a href="#">Home</a></li>
-                    <li class="collection-show"><a href="collection.html">Collection <i
+                    <li><a href="{{route('home')}}">Home</a></li>
+                    <li class="collection-show"><a href="{{route('collection')}}">Collection <i
                                 class="fa-solid fa-chevron-down"></i></a>
 
 
@@ -53,47 +56,60 @@
                             <div class="row">
                                 <div class="col col-3 collection-item">
                                     <img src="{{asset('client')}}/assets/img/img-header/shoe21.webp" alt="">
-                                    <button class="collection-btn">
-                                        <span class="name-shoes">Ballet shoe</span>
-                                        <span class="cost-shoes">200$</span>
-                                    </button>
+                                    <a href="{{route('chitietsp')}}">
+                                        <button class="collection-btn">
+                                            <span class="name-shoes">Ballet shoe</span>
+                                            <span class="cost-shoes">
+                                                <span>$</span>200</span>
+                                        </button>
+                                    </a>
                                 </div>
                                 <div class=" col col-3 collection-item">
                                     <img src="{{asset('client')}}/assets/img/img-header/shoe11.webp" alt="">
-                                    <button class="collection-btn">
-                                        <span class="name-shoes">Ballet shoe</span>
-                                        <span class="cost-shoes">532$</span>
-                                    </button>
+                                    <a href="{{route('chitietsp')}}">
+                                        <button class="collection-btn">
+                                            <span class="name-shoes">Ballet shoe</span>
+                                            <span class="cost-shoes">
+                                                <span>$</span>532</span>
+                                        </button>
+                                    </a>
                                 </div>
                                 <div class=" col col-3 collection-item">
                                     <img src="{{asset('client')}}/assets/img/img-header/shoe22_48464579-a7fe-40ba-ad66-8c6aa7ef2bb1.webp"
                                         alt="">
-                                    <button class="collection-btn">
-                                        <span class="name-shoes">Ballet shoe</span>
-                                        <span class="cost-shoes">300$</span>
-                                    </button>
+                                        <a href="{{route('chitietsp')}}">
+                                            <button class="collection-btn">
+                                                <span class="name-shoes">Ballet shoe</span>
+                                                <span class="cost-shoes">
+                                                    <span>$</span>300</span>
+                                            </button>
+                                        </a>
                                 </div>
                                 <div class=" col col-3 collection-item">
                                     <img src="{{asset('client')}}/assets/img/img-header/shoe26_de67b47c-8d95-481f-aa85-268cdc309e4e.webp"
                                         alt="">
-                                    <button class="collection-btn">
-                                        <span class="name-shoes">Ballet shoe</span>
-                                        <span class="cost-shoes">620$</span>
-                                    </button>
+                                        <a href="{{route('chitietsp')}}">
+                                            <button class="collection-btn">
+                                                <span class="name-shoes">Ballet shoe</span>
+                                                <span class="cost-shoes">
+                                                    <span>$</span>620</span>
+                                            </button>
+                                        </a>
                                 </div>
                             </div>
                         </div>
 
                     </li>
                     <li><a href="{{route('shoes')}}">Shoes</a></li>
-                    <li><a href="boots.html">Boots</a></li>
-                    <li><a href="climbing.html">Climbing</a></li>
-                    <li class="page-show"><a href="blog.html">Pages <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="page-show-list">
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="contact.html">Contact us</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="">Wishlist</a></li>
+                    <li><a href="{{route('boots')}}">Boots</a></li>
+                    <li><a href="{{route('boots')}}">Climbing</a></li>
+                    <li class="page-show ralative">
+                        <a href="{{route('blog')}}">Pages <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="page-show-list p-2 absolute top-full">
+                            <li><a href="{{route('about')}}">About us</a></li>
+                            <li><a href="{{route('contact')}}">Contact us</a></li>
+                            <li><a href="{{route('blog')}}">Blog</a></li>
+                            <li><a href="{{route('whish')}}">Wishlist</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -105,11 +121,53 @@
             </div>
             <!-- end -->
             <div class="icon-header">
-                <span class="icon-search">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit"> <i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                {{-- <span class="icon-search text-xl  ">
+                    <input type="text">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </span>
-                <span class="icon-user">
-                    <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                </span> --}}
+                <span class="icon-user text-2xl relative  ">
+                    <span class="info-user">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                    <ul class="w-[200px] bg-white z-[10] absolute p-3 right-0 rounded-lg shadow-lg model-user">
+                        @guest  
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Đăng nhập</a>
+                        </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Đăng kí</a>
+                        </li>
+                    @endif
+
+
+                        @else
+                       
+                        @if (Auth()->user()->group_id == 1)
+                            
+                        <li><a href="{{route('admin.trangchu')}}">Admin</a></li>
+                        @endif
+                        <li>   
+                            <a class="" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                    </li>
+                    @endguest
+                    </ul>
+
                 </span>
                 <span class="icon-cart">
                  @php
@@ -120,10 +178,10 @@
 							}
 						}
                 @endphp
-                    <span class="icon-number">
+                    <span class="icon-number w-[25px]  h-[25px] p-2 flex justify-center items-center">
                         {{$number}}
                     </span>
-                    <i class="fa-solid fa-briefcase"></i>
+                    <i class="text-2xl fa-solid fa-briefcase"></i>
                 </span>
             </div>
 
@@ -300,13 +358,13 @@
                   @php
                       $sum = 0;
                   @endphp
-                    @if (session('cart')){
+                    @if (session('cart'))
                         @foreach (session('cart') as $item)
                         @php
                         $sum += $item->total;
                         @endphp
                         <div class="product-cart">
-                            <span class="close-item">x</span>
+                            <span data-id="{{$item->id}}" data-url="{{route('cart.delete')}}" class="close-item">x</span>
                             <div class="item-img-cart">
                                 <img src="{{$item->image}}" alt="">
                             </div>
@@ -315,15 +373,14 @@
                                 <p>7 / yellow / leather</p>
                                 <span>{{$item->gia}}</span>
                                 <div class="dt-sc-cart">
-                                    <span class="up-down">-</span>
+                                    <span data-url="{{route('cart.add')}}" data-id="{{$item->id}}" class="up-down decre">-</span>
                                     <input type="text" value="{{$item->number}}">
-                                    <span class="up-down">+</span>
+                                    <span  data-url="{{route('cart.add')}}" data-id="{{$item->id}}" class="up-down incre">+</span>
                                 </div>
                             </div>
                     
                         </div>
                         @endforeach
-                    }
                         
                     @endif
                 </div>
@@ -331,7 +388,7 @@
                 <div class="bottom-cart">
                     <div class="sub-total">
                         <div class="p-title">Total</div>
-                        <span class="money">$<span>{{$sum}}</span></span>
+                        <span class="money">$<span class="sumMoney">{{$sum}}</span></span>
                     </div>
                     <div class="p-main">
                         Shipping, taxes, and discounts will be calculated at checkout.
@@ -340,7 +397,9 @@
                         <button>PRODUCT TO CHECK OUT</button>
                     </div>
                     <div class="btn-cart">
-                        <button>VIEW CART</button>
+                        <a class="block w-full" href="{{route('whish')}}">
+                            <button>VIEW CART</button>
+                        </a>
                     </div>
                 </div>
 
@@ -356,6 +415,9 @@
             AOS.init();
         </script>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.1/toastr.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
         <script src="{{asset('client/js')}}/main.js"></script>
         <script src="{{asset('client/js')}}/cart.js"></script>
         {{-- <script src="./responesive.js"></script> --}}

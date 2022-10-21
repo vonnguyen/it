@@ -4,7 +4,9 @@
     <link rel="stylesheet" href="{{asset('client')}}/assets/login.css">
 @endsection
 @section('content')
-    <div class="slide-header">
+<div class="pt-[110px]">
+
+    <div class="slide-header ">
         <div class="contain-slide">
             <p>COLLECTION</p>
             <ul>
@@ -14,6 +16,7 @@
             </ul>
         </div>
     </div>
+</div>
 
     <!-- Contain -->
 
@@ -69,7 +72,7 @@
                                         </div>
                                     </div>
                                     <div class="name-shoe-ctn3 h-2/5 mt-4">
-                                        <h1> <a href="#">{{$product->name}}</a> </h1>
+                                        <h1> <a href="{{route('product',$product->id)}}" >{{$product->name}}</a> </h1>
                                         <div class="cost-ctn3">
                                             <h2><span>$</span>{{number_format($product->gia , 2)}}</h2>
                                         </div>
@@ -79,8 +82,8 @@
                                                     class="fa-solid fa-star">
                                                 </i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                             </div>
-                                            <div class="bag-ctn3"
-                                            data-url="{{route('cart.add')}}" data-id="{{$product->id}}"><i class="fa-solid fa-bag-shopping"></i>
+                                            <div class="bag-ctn3" data-urlremove="{{route('cart.delete')}}"
+                                                data-url="{{route('cart.add')}}" data-id="{{$product->id}}"><i class="cursor-pointer fa-solid fa-bag-shopping"></i>
                                             </div>
     
                                         </div>
@@ -259,7 +262,7 @@
                             <img src="./assets/img/slide-header/breadcrumb-4.webp" alt="">
                         </div>
                         <div class="btn-shop-now">
-                            <a href="collection.html">
+                            <a href="{{route('collection')}}">
                                 <button>
                                     SHOP NOW
                                 </button>

@@ -206,7 +206,7 @@
                                             </div>
                                         </div>
                                         <div class="name-shoe-ctn3 h-2/5 mt-4">
-                                            <h1> <a href="#">{{ $product->name}}</a> </h1>
+                                            <h1> <a href="{{route('product',$product->id)}}">{{ $product->name}}</a> </h1>
                                             <div class="cost-ctn3">
                                                 <h2> <span>$</span> {{number_format($product->gia,2)}}</h2>
                                             </div>
@@ -216,8 +216,9 @@
                                                         class="fa-solid fa-star">
                                                     </i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                                 </div>
-                                                <div class="bag-ctn3"><a href=""><i
-                                                            class="fa-solid fa-bag-shopping"></i></a></div>
+                                                <div class="bag-ctn3" data-urlremove="{{route('cart.delete')}}"
+                                                    data-url="{{route('cart.add')}}" data-id="{{$product->id}}"><i class="cursor-pointer fa-solid fa-bag-shopping"></i>
+                                                </div>
 
                                             </div>
                                         </div>
@@ -226,73 +227,6 @@
                                 </div>
                             @endforeach
                         @endif
-
-                        {{-- <div class="col-md-4 picture-3" data-aos-duration="1000" data-aos="fade-up-left">
-                    <div class="item">
-
-                        <div class="img-ctn3">
-                            <div class="groups-img">
-                                <img src="{{asset('client')}}/assets/img/img-ctn3/shoe15_720x.webp" alt="">
-                                <img src="{{asset('client')}}/assets/img/img-ctn2/shoeyelow.webp" alt="">
-                            </div>
-                            <div class="icon-ctn3">
-                                <a href=""><i class="fa-solid fa-message"></i></a>
-                                <a href=""><i class="fa-brands fa-gratipay"></i></a>
-                                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                            </div>
-                        </div>
-                        <div class="name-shoe-ctn3">
-                            <h1> <a href="#">BLUCHER SHOE</a> </h1>
-                            <div class="cost-ctn3">
-                                <h2> <span>$</span> 780.00</h2>
-                            </div>
-                            <div class="icon-ctn3">
-                                <div class="icon-start">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                        class="fa-solid fa-star">
-                                    </i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
-                                <div class="bag-ctn3"><a href=""><i
-                                            class="fa-solid fa-bag-shopping"></i></a></div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-4 picture-3" data-aos-duration="1000" data-aos="fade-down-right">
-                    <div class="item">
-
-                        <div class="img-ctn3">
-                            <div class="groups-img">
-                                <img src="{{asset('client')}}/assets/img/img-ctn2/shoe2_720x.webp" alt="">
-                                <img src="{{asset('client')}}/assets/img/img-ctn2/shoe_product.webp" alt="">
-                            </div>
-                            <div class="icon-ctn3">
-                                <a href=""><i class="fa-solid fa-message"></i></a>
-                                <a href=""><i class="fa-brands fa-gratipay"></i></a>
-                                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                            </div>
-                        </div>
-                        <div class="name-shoe-ctn3">
-                            <h1> <a href="#">ZAPATOS DG MECARDOLIBRE</a> </h1>
-                            <div class="cost-ctn3">
-                                <h2> <span>$</span> 478.00</h2>
-                            </div>
-                            <div class="icon-ctn3">
-                                <div class="icon-start">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                        class="fa-solid fa-star">
-                                    </i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
-                                <div class="bag-ctn3"><a href=""><i
-                                            class="fa-solid fa-bag-shopping"></i></a></div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div> --}}
 
                     </div>
                 </div>
@@ -355,7 +289,7 @@
                                                 </div>
                                             </div>
                                             <div class="name-shoe-ctn3 h-1/4 mt-4">
-                                                <h1> <a href="#">{{ $product->name }}</a> </h1>
+                                                <h1> <a href="{{route('product',$product->id)}}">{{ $product->name }}</a> </h1>
                                                 <div class="cost-ctn3">
                                                     <h2> <span>$</span>{{number_format($product->gia,2)}}</h2>
                                                 </div>
@@ -366,8 +300,9 @@
                                                         </i><i class="fa-solid fa-star"></i><i
                                                             class="fa-solid fa-star"></i>
                                                     </div>
-                                                    <div class="bag-ctn3"><a href=""><i
-                                                                class="fa-solid fa-bag-shopping"></i></a></div>
+                                                    <<div class="bag-ctn3" data-urlremove="{{route('cart.delete')}}"
+                                                            data-url="{{route('cart.add')}}" data-id="{{$product->id}}"><i class="cursor-pointer fa-solid fa-bag-shopping"></i>
+                                                    </div>
 
                                                 </div>
                                             </div>
@@ -377,144 +312,7 @@
                                 @endforeach
                             @endif
 
-                            {{-- <div class="col-md-6 picture-3" data-aos-duration="1000" data-aos="fade-right"
-                        data-aos-delay="800" data-aos-anchor-placement="center-bottom">
-                        <div class="item">
-
-                            <div class="img-ctn3">
-                                <div class="groups-img">
-                                    <img src="{{asset('client')}}/assets/img/img-ctn2/shoeyelow.webp" alt="">
-                                    <img src="{{asset('client')}}/assets/img/img-ctn5/shoe20_600x.webp" alt="">
-                                </div>
-                                <div class="icon-ctn3">
-                                    <a href=""><i class="fa-solid fa-message"></i></a>
-                                    <a href=""><i class="fa-brands fa-gratipay"></i></a>
-                                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                                </div>
-                            </div>
-                            <div class="name-shoe-ctn3">
-                                <h1> <a href="#">COURT SHOE</a> </h1>
-                                <div class="cost-ctn3">
-                                    <h2> <span>$</span> 478.00</h2>
-                                </div>
-                                <div class="icon-ctn3">
-                                    <div class="icon-start">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                            class="fa-solid fa-star">
-                                        </i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <div class="bag-ctn3"><a href=""><i
-                                                class="fa-solid fa-bag-shopping"></i></a></div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6 picture-3" data-aos-duration="1000" data-aos="fade-right"
-                        data-aos-delay="800" data-aos-anchor-placement="center-bottom">
-                        <div class="item">
-
-                            <div class="img-ctn3">
-                                <div class="groups-img">
-                                    <img src="{{asset('client')}}/assets/img/img-ctn5/shoe-red.webp" alt="">
-                                    <img src="{{asset('client')}}/assets/img/img-ctn2/shoe_product.webp" alt="">
-                                </div>
-                                <div class="icon-ctn3">
-                                    <a href=""><i class="fa-solid fa-message"></i></a>
-                                    <a href=""><i class="fa-brands fa-gratipay"></i></a>
-                                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                                </div>
-                            </div>
-                            <div class="name-shoe-ctn3">
-                                <h1> <a href="#">BAST SHOE</a> </h1>
-                                <div class="cost-ctn3">
-                                    <h2> <span>$</span> 106.00</h2>
-                                </div>
-                                <div class="icon-ctn3">
-                                    <div class="icon-start">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                            class="fa-solid fa-star">
-                                        </i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <div class="bag-ctn3"><a href=""><i
-                                                class="fa-solid fa-bag-shopping"></i></a></div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6 picture-3" data-aos-duration="1000" data-aos="fade-right"
-                        data-aos-delay="800" data-aos-anchor-placement="center-bottom">
-                        <div class="item">
-
-                            <div class="img-ctn3">
-                                <div class="groups-img">
-                                    <img src="{{asset('client')}}/assets/img/img-ctn3/shoe12_968efbaa-1956-4621-93d2-1f1f8fdc3d11_600x.webp"
-                                        alt="">
-                                    <img src="{{asset('client')}}/assets/img/img-ctn2/collection3_large.webp" alt="">
-                                </div>
-                                <div class="icon-ctn3">
-                                    <a href=""><i class="fa-solid fa-message"></i></a>
-                                    <a href=""><i class="fa-brands fa-gratipay"></i></a>
-                                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                                </div>
-                            </div>
-                            <div class="name-shoe-ctn3">
-                                <h1> <a href="#">CLIMBING SHOE</a> </h1>
-                                <div class="cost-ctn3">
-                                    <h2> <span>$</span> 478.00</h2>
-                                </div>
-                                <div class="icon-ctn3">
-                                    <div class="icon-start">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                            class="fa-solid fa-star">
-                                        </i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <div class="bag-ctn3"><a href=""><i
-                                                class="fa-solid fa-bag-shopping"></i></a></div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6 picture-3" data-aos-duration="1000" data-aos="fade-right"
-                        data-aos-delay="800" data-aos-anchor-placement="center-bottom">
-                        <div class="item">
-
-                            <div class="img-ctn3">
-                                <div class="groups-img">
-                                    <img src="{{asset('client')}}/assets/img/img-ctn5/shoe25_2b59f812-76f2-448b-8835-d7ad151027e4_720x.webp"
-                                        alt="">
-                                    <img src="{{asset('client')}}/assets/img/img-ctn3/shoe15_720x.webp" alt="">
-                                </div>
-                                <div class="icon-ctn3">
-                                    <a href=""><i class="fa-solid fa-message"></i></a>
-                                    <a href=""><i class="fa-brands fa-gratipay"></i></a>
-                                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                                </div>
-                            </div>
-                            <div class="name-shoe-ctn3">
-                                <h1> <a href="#">DIABETIC SHOE</a> </h1>
-                                <div class="cost-ctn3">
-                                    <h2> <span>$</span> 365.00</h2>
-                                </div>
-                                <div class="icon-ctn3">
-                                    <div class="icon-start">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                            class="fa-solid fa-star">
-                                        </i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <div class="bag-ctn3"><a href=""><i
-                                                class="fa-solid fa-bag-shopping"></i></a></div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div> --}}
+                            
                         </div>
                     </div>
 
